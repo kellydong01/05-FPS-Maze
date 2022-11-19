@@ -1,19 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Exit/Exit.gd" type="Script" id=2]
-[ext_resource path="res://Key/Key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/Enemies.gd" type="Script" id=2]
 [ext_resource path="res://UI/InputRemapMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Maze/Maze.gd" type="Script" id=5]
 [ext_resource path="res://Minimap/Minimap.gd" type="Script" id=6]
 [ext_resource path="res://Assets/coin_sound.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Resilience.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Assets/zombie_snarl.wav" type="AudioStream" id=9]
 [ext_resource path="res://Game.gd" type="Script" id=10]
 [ext_resource path="res://Assets/marker.png" type="Texture" id=11]
-
-[sub_resource type="SphereShape" id=6]
-radius = 0.5
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 10 )
@@ -21,23 +16,8 @@ script = ExtResource( 10 )
 [node name="Maze" type="Spatial" parent="."]
 script = ExtResource( 5 )
 
-[node name="key" parent="Maze" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0.2, 1 )
-
-[node name="Exit" type="Area" parent="Maze"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, 39 )
+[node name="Enemies" type="Spatial" parent="Maze"]
 script = ExtResource( 2 )
-
-[node name="Light" type="OmniLight" parent="Maze/Exit"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.779773, 0 )
-light_color = Color( 1, 0, 0, 1 )
-light_energy = 10.0
-omni_range = 3.0
-omni_attenuation = 2.0
-
-[node name="CollisionShape" type="CollisionShape" parent="Maze/Exit"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400698, 0 )
-shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, 1 )
@@ -80,10 +60,6 @@ autoplay = true
 stream = ExtResource( 7 )
 volume_db = -20.0
 
-[node name="Zombie" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = -22.0
-
 [node name="Objective" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
@@ -101,5 +77,4 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="Maze/Exit" to="Maze/Exit" method="_on_Exit_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
