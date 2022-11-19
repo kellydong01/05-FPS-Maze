@@ -9,6 +9,9 @@ var mouse_range = 1.2								# Clamp to about a 140 degree range of motion
 
 var velocity = Vector3()
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func get_input():
 	var input_dir = Vector3()						# Collect all the inputs into a single vector
 	if Input.is_action_pressed("forward"):			# all the inputs are directions relative to where the camera is currently facing

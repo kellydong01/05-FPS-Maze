@@ -11,6 +11,7 @@ func _ready():
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("menu"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if menu == null:
 			menu = get_node_or_null("/root/Game/UI/Menu")
 		if menu != null:
@@ -21,6 +22,7 @@ func _unhandled_input(_event):
 				save_input()
 				get_tree().paused = false
 				menu.visible = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func load_input():
