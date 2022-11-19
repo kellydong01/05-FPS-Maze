@@ -17,6 +17,7 @@ Which features you included
 - [All CSG Mesh For Wall Tiles](https://ambientcg.com/)
 - [Minimap Roads](https://kenney.nl/assets/road-textures)
 - [Minimap Space](https://kenney.nl/assets/simple-space)
+- [Blaster by Kenney](https://kenney.nl/assets/blaster-kit)
 
 ## Future Development
 
