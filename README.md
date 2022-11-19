@@ -18,6 +18,8 @@ Which features you included
 - [Minimap Roads](https://kenney.nl/assets/road-textures)
 - [Minimap Space](https://kenney.nl/assets/simple-space)
 - [Blaster by Kenney](https://kenney.nl/assets/blaster-kit)
+- [Muzzle Flash Model](https://opengameart.org/content/muzzle-flash-with-model)
+- [Bullet Decal](https://opengameart.org/content/bullet-decal)
 
 ## Future Development
 
