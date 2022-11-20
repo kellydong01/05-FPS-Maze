@@ -9,8 +9,7 @@ var mouse_range = 1.2								# Clamp to about a 140 degree range of motion
 
 var velocity = Vector3()
 
-var ammo = 2
-
+onready var Decal = preload("res://Player/Decal.tscn")
 onready var rc = $Pivot/RayCast
 onready var flash = $Pivot/gun/Flash
 
@@ -50,5 +49,9 @@ func _physics_process(delta):
 		flash.shoot()
 		if rc.is_colliding():
 			var c = rc.get_collider()
+			var decal = Decal.instance()
+			rc.get_collider().add_child(decal)
+			decal.global_transform.origin = rc.get_collision_point()
+			decal.look_at(rc.get_collision_point() + rc.get_collision_normal(), Vector3.UP)
 			if c.is_in_group("Enemy"):
 				c.queue_free()

@@ -62,14 +62,14 @@ volume_db = -20.0
 
 [node name="Objective" type="Label" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.505
-anchor_right = 0.5
-anchor_bottom = 0.505
-margin_left = -136.0
-margin_top = -7.0
-margin_right = 132.0
-margin_bottom = 7.0
+anchor_left = 0.498
+anchor_top = 0.265
+anchor_right = 0.498
+anchor_bottom = 0.265
+margin_left = -133.952
+margin_top = -7.00002
+margin_right = 134.048
+margin_bottom = 6.99998
 text = "Find a way to exit this maze adventurer..."
 
 [node name="Timer" type="Timer" parent="."]
