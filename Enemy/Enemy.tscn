@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Zombie.tres" type="Material" id=1]
 [ext_resource path="res://Assets/lambert1.material" type="Material" id=2]
@@ -98,14 +98,17 @@ surfaces/0 = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.479948, 0.885832, 0.761769 )
 
-[sub_resource type="SphereShape" id=8]
-radius = 3.5
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.5, 1, 0.25 )
 
-[node name="Enemy" type="Area"]
+[sub_resource type="SphereShape" id=8]
+radius = 7.0
+
+[node name="Enemy" type="KinematicBody" groups=["Enemy"]]
 script = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+transform = Transform( -0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0 )
 
 [node name="Body1" type="MeshInstance" parent="Spatial"]
 mesh = SubResource( 1 )
@@ -141,14 +144,20 @@ material/0 = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1.18322, 0, 0, 0, 0.296331, 0, 0.75, 0 )
 shape = SubResource( 7 )
 
-[node name="Area" type="Area" parent="."]
+[node name="Hitbox" type="Area" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
+shape = SubResource( 9 )
+
+[node name="Growl Range" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Growl Range"]
 shape = SubResource( 8 )
 
 [node name="Zombie" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -22.0
 
-[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="Growl Range" to="." method="_on_Area_body_entered"]

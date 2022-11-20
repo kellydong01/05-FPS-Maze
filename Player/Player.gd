@@ -9,6 +9,11 @@ var mouse_range = 1.2								# Clamp to about a 140 degree range of motion
 
 var velocity = Vector3()
 
+var ammo = 2
+
+onready var rc = get_node("Pivot/RayCast")
+onready var flash = get_node("Pivot/gun/Flash")
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -40,3 +45,10 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x					# just get the XZ components of the velocity (the y is handled purely by gravity)
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
+	
+	if Input.is_action_just_pressed("shoot"):
+		flash.shoot()
+		if rc.is_colliding():
+			var c = rc.get_collider()
+			if c.is_in_group("Enemy"):
+				c.queue_free()
