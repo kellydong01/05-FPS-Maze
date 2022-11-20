@@ -1,11 +1,17 @@
 
 # C220 Project 05 ~ FPS Maze
-Context and date
+Worked on from 11/17 - 11/19. Finished on 11/19. Work done by Kelly Dong.
 
-Description
+Simple FPS Maze with the objective to get out of the maze along with some basic enemies on the way to obstruct the player.
 
 ## Implementation
-Which features you included
+- Player controlled movement and shooting
+- A basic enemy type
+- Different materials for the maze walls
+- Procedurally generated maze
+- Bullet holes
+- Cross hair
+- Button hotkey reassigning
 
 ## References
 - [Key by Kenney](https://kenney.nl/assets/platformer-kit)
@@ -24,6 +30,7 @@ Which features you included
 - [Crosshair](https://opengameart.org/content/3-fps-crosshairs)
 
 ## Future Development
+None
 
 ## Created by
 Kelly Dong
