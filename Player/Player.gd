@@ -11,8 +11,8 @@ var velocity = Vector3()
 
 var ammo = 2
 
-onready var rc = get_node("Pivot/RayCast")
-onready var flash = get_node("Pivot/gun/Flash")
+onready var rc = $Pivot/RayCast
+onready var flash = $Pivot/gun/Flash
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -46,7 +46,7 @@ func _physics_process(delta):
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and !flash.visible:
 		flash.shoot()
 		if rc.is_colliding():
 			var c = rc.get_collider()
