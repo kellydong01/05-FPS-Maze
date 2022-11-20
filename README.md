@@ -20,6 +20,7 @@ Which features you included
 - [Blaster by Kenney](https://kenney.nl/assets/blaster-kit)
 - [Muzzle Flash Model](https://opengameart.org/content/muzzle-flash-with-model)
 - [Bullet Decal](https://opengameart.org/content/bullet-decal)
+- [Bullet Sound](https://opengameart.org/content/q009s-weapon-sounds)
 
 ## Future Development
 
